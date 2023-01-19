@@ -1,4 +1,4 @@
-service: aws-lambda-crud-node
+service: aws-lambda-crud-node-dev
 frameworkVersion: '3'
 
 provider:
@@ -14,31 +14,31 @@ provider:
 
 functions:
   createTask:
-    handler: src/taskController.addTaskHandler
+    handler: src/handler.addTaskHandler
     events:
       - httpApi:
           path: /tasks
           method: post
   listTasks:
-    handler: src/taskController.getTasksHandler
+    handler: src/handler.getTasksHandler
     events:
       - httpApi:
           path: /tasks
           method: get
   getTask:
-    handler: src/taskController.getTaskHandler
+    handler: src/handler.getTaskHandler
     events:
       - httpApi:
           path: /tasks/{id}
           method: get
   deleteTask:
-    handler: src/taskController.deleteTaskHandler
+    handler: src/handler.deleteTaskHandler
     events:
       - httpApi:
           path: /tasks/{id}
           method: delete
   updateTask:
-    handler: src/taskController.updateTaskHandler
+    handler: src/handler.updateTaskHandler
     events:
       - httpApi:
           path: /tasks/{id}
